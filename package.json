@@ -1,0 +1,25 @@
+{
+  "name": "seeli",
+  "version": "0.0.1",
+  "description": "Promote your module’s CLI with animated examples.",
+  "homepage": "https://seeli.kennethormandy.com",
+  "license": "MIT",
+  "private": true,
+  "repository": "git@github.com:kennethormandy/seeLI.git",
+  "author": "Jorge Pedret & Kenneth Ormandy <kenneth@chloi.io>",
+  "contributors":
+  [ "Jorge Pedret <jorge@chloi.io>"
+  , "Kenneth Ormandy <kenneth@chloi.io>"
+  ],
+  "keywords": [
+    "jquery",
+    "plugin",
+    "cli",
+    "animation",
+    "syntax",
+    "documentation"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/seeLI are greatly appriciated.\" && exit 1"
+  }
+}
