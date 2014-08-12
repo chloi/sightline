@@ -1,0 +1,90 @@
+pre {
+  overflow: auto;
+}
+
+.cli,
+.cli pre,
+.cli code {
+  display: block;
+  font-size: 1em;
+  font-family: "Fira Mono", Monaca, monospace, monospace;
+  font-weight: 400;
+}
+
+.cli {
+  z-index: 1;
+  position: relative;
+  background: #333;
+  color: #FFF;
+  padding: 1em;
+  min-height: 10em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+@media (min-width: 500px) {
+  .cli {
+    font-size: 1em;
+  }
+}
+
+.cli-line {
+  color: #FFF;
+  background: transparent;
+  padding: 0;
+  display: block;
+  &:before {
+    content: "$ ";
+    color: darken(#FFF, 15%);
+  }
+  &.cli-line--comment {
+    color: #AAA;
+    &:before {
+      color: #AAA;
+      content: "# ";
+    }
+  }
+}
+
+.js .cli {
+  display: block;
+  visibility: visible;
+  .cli-line {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    &:before {
+      display: none;
+      visibility: hidden;
+    }
+  }
+  .cli-line.is-visible {
+    display: block;
+    visibility: visible;
+    transition: opacity 3s;
+    opacity: 1.0;
+    &:before {
+      display: inline;
+      visibility: visible;
+      transition: opacity 3s;
+      opacity: 1.0;
+    }
+  }
+}
+
+
+.cli .cli--blinkCursor:after {
+  opacity: 0;
+  -webkit-animation: blink-cursor 1s infinite;
+  content: "";
+  border-right: 1ex solid;
+}
+
+@keyframes blink-cursor {
+  50% { opacity: 1; }
+}
+
+@-webkit-keyframes blink-cursor {
+  50% { opacity: 1; }
+}

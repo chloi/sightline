@@ -1,0 +1,39 @@
+doctype
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title seeLi
+    meta(name="handheldfriendly" content="true")
+    meta(name="mobileoptimized" content="320")
+    meta(name="viewport" content="width=device-width initial-scale=1.0")
+    meta(http-equiv="cleartype" content="on")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    meta(name="description" content="")
+    meta(name="author" content="Chloi, Inc.")
+    link(href="main.css" rel="stylesheet")
+    style.
+      //- .wf-loading { display: none; visiblity: hidden }
+      //- .wf-active, .wf-inactive { display: block; visibility: visible }
+      body { margin: 0 auto; padding: 2em; max-width: 40em }
+    script
+      WebFontConfig = {
+        google: { families: [ 'Fira+Mono:400,700:latin' ] },
+        timeout: 1000
+      };
+    script(async defer src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js")
+  body
+    .main#main(role="main")
+      pre.js-cli.cli
+        code.cli-line npm install -g harp
+        code.cli-line harp server
+        code.cli-line.cli-line--comment(data-term="output") Your server is listening at http://localhost:9000
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+    script(src="../jquery.seeli.js")
+    script.
+      $('body').addClass('js');
+      $('.js-cli').seeli({
+        autoplay: true,
+        maxLines: 5,
+        charDelay: 50,
+        lineDelay: 200
+      });
