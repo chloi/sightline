@@ -1,21 +1,17 @@
 /*!
-* seeLI: Promote your module’s CLI with animated examples.
-* @version 0.0.1
-* @dependency Works with jQuery or Zepto.
-* @docs https://github.com/kennethormandy/seeLI
-* @license The MIT License. Copyright © 2014 Jorge Pedret, Kenneth Ormandy, and Chloi, Inc.
-*/
+ * seeLI: Promote your module’s CLI with animated examples.
+ * @version 0.0.1
+ * @dependency Works with jQuery.
+ * @docs https://github.com/kennethormandy/seeLI
+ * @license The MIT License. Copyright © 2014 Jorge Pedret, Kenneth Ormandy, and Chloi, Inc.
+ */
 
-(function (window, $) {
-  $.fn.term = function () {
-    var args = Array.prototype.slice.call(arguments, 0),
-        methods = {},
-        defaultOptions = {
-          maxLines: 0,
-          charDelay: 50,
-          lineDelay: 300,
-          autoplay: true
-        };
+(function ($, window, document, undefined) {
+
+  $.fn.seeli = function(defaultOptions) {
+    var args = Array.prototype.slice.call(arguments, 0)
+    ,   methods = {}
+    ,   opts = $.extend({}, $.fn.seeli.defaults, defaultOptions);
 
     methods = {
       play: function () {
@@ -32,14 +28,14 @@
         // Setup each line and extract the text before starting the animation
         lines.each(function () {
           var text = $(this).text();
-          
+
           self.lines.push({
             text: text,
             textArr: text.split(""),
             el: this,
             $el: $(this)
           });
-          
+
           $(this).empty().removeClass("is-visible");
         });
 
@@ -48,7 +44,7 @@
           var delay = self.options.lineDelay;
           self.lines[index].$el.addClass("is-visible");
         }
-        
+
         setTimeout(function () {
           var line;
           // Make sure we still have lines to work with
@@ -91,20 +87,27 @@
         }, self.options.charDelay);
       }
     }
-    
+
     return $(this).each(function () {
       if (args.length == 0 || typeof args[0] == "object") {
-        this.options = $.extend(defaultOptions, args[0]);
+        this.options = $.extend(opts, args[0]);
         if (this.options.autoplay) {
           methods.play.call(this);
         }
       } else if (typeof args[0] == "string") {
         if (typeof methods[args[0]] == "function") {
-          if (!this.options) this.options = defaultOptions;
+          if (!this.options) this.options = opts;
           methods[args[0]].call(this, args.splice(1, args.length-1));
         }
       }
     })
   };
 
-})(window, jQuery);
+  $.fn.seeli.defaults = {
+    maxLines: 0,
+    charDelay: 50,
+    lineDelay: 300,
+    autoplay: true
+  };
+
+})(window.jQuery, window, document);
