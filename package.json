@@ -19,6 +19,9 @@
     "syntax",
     "documentation"
   ],
+  "devDependencies": {
+    "jquery": "*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/seeLI are greatly appriciated.\" && exit 1"
   }
