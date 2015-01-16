@@ -18,9 +18,11 @@
     "syntax",
     "documentation"
   ],
+  "dependencies": {
+    "jquery": "^2.0.0"
+  },
   "devDependencies": {
     "harp": "^0.14.0",
-    "jquery": "*",
     "surge": "^0.5.2"
   },
   "scripts": {
