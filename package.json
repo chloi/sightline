@@ -27,6 +27,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/seeLI are greatly appriciated.\" && exit 1",
-    "start": "harp server && echo \"Visit http://localhost:9000/examples\""
+    "start": "harp server && echo \"Visit http://localhost:9000/examples\"",
+    "compile": "harp compile examples/ -o ../www",
+    "deploy": "npm run compile && surge www sightline.surge.sh"
   }
 }
