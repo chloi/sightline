@@ -1,10 +1,11 @@
 {
   "name": "sightline",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Demonstrate your CLI with animated examples.",
   "homepage": "https://sightline.surge.sh",
   "license": "MIT",
   "repository": "git@github.com:chloi/sightline.git",
+  "main": "jquery.sightline.js",
   "author": "Chloi Inc. <info@chloi.io>",
   "contributors": [
     "Jorge Pedret    <jorge@chloi.io>   (http://jorgepedret.com)",

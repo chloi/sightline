@@ -1,6 +1,6 @@
 /*!
  * Sightline: Demonstrate your CLI with animated examples.
- * @version 0.1.0
+ * @version 0.1.1
  * @dependency Works with jQuery.
  * @docs https://github.com/chloi/sightline
  * @license The MIT License. Copyright © 2014–2015 Jorge Pedret, Kenneth Ormandy, and Chloi Inc.
