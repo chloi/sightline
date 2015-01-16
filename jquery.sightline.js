@@ -1,17 +1,17 @@
 /*!
- * seeLI: Promote your module’s CLI with animated examples.
- * @version 0.0.1
+ * Sightline: Demonstrate your CLI with animated examples.
+ * @version 0.1.0
  * @dependency Works with jQuery.
- * @docs https://github.com/kennethormandy/seeLI
- * @license The MIT License. Copyright © 2014 Jorge Pedret, Kenneth Ormandy, and Chloi, Inc.
+ * @docs https://github.com/chloi/sightline
+ * @license The MIT License. Copyright © 2014–2015 Jorge Pedret, Kenneth Ormandy, and Chloi Inc.
  */
 
 (function ($, window, document, undefined) {
 
-  $.fn.seeli = function(defaultOptions) {
+  $.fn.sightline = function(defaultOptions) {
     var args = Array.prototype.slice.call(arguments, 0)
     ,   methods = {}
-    ,   opts = $.extend({}, $.fn.seeli.defaults, defaultOptions);
+    ,   opts = $.extend({}, $.fn.sightline.defaults, defaultOptions);
 
     methods = {
       play: function () {
@@ -103,7 +103,7 @@
     })
   };
 
-  $.fn.seeli.defaults = {
+  $.fn.sightline.defaults = {
     maxLines: 0,
     charDelay: 50,
     lineDelay: 300,

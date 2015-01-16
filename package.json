@@ -1,15 +1,14 @@
 {
-  "name": "seeli",
+  "name": "sightline",
   "version": "0.0.1",
-  "description": "Promote your module’s CLI with animated examples.",
-  "homepage": "https://seeli.kennethormandy.com",
+  "description": "Demonstrate your CLI with animated examples.",
+  "homepage": "https://sightline.surge.sh",
   "license": "MIT",
-  "private": true,
-  "repository": "git@github.com:kennethormandy/seeLI.git",
-  "author": "Jorge Pedret & Kenneth Ormandy <kenneth@chloi.io>",
-  "contributors":
-  [ "Jorge Pedret <jorge@chloi.io>"
-  , "Kenneth Ormandy <kenneth@chloi.io>"
+  "repository": "git@github.com:chloi/sightline.git",
+  "author": "Chloi Inc. <info@chloi.io>",
+  "contributors": [
+    "Jorge Pedret    <jorge@chloi.io>   (http://jorgepedret.com)",
+    "Kenneth Ormandy <kenneth@chloi.io> (http://kennethormandy.com)"
   ],
   "keywords": [
     "jquery",
@@ -20,9 +19,12 @@
     "documentation"
   ],
   "devDependencies": {
-    "jquery": "*"
+    "harp": "^0.14.0",
+    "jquery": "*",
+    "surge": "^0.5.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/seeLI are greatly appriciated.\" && exit 1"
+    "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/seeLI are greatly appriciated.\" && exit 1",
+    "start": "harp server && echo \"Visit http://localhost:9000/examples\""
   }
 }
