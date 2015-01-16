@@ -15,20 +15,24 @@ html(lang="en")
       //- .wf-loading { display: none; visiblity: hidden }
       //- .wf-active, .wf-inactive { display: block; visibility: visible }
       body { margin: 0 auto; padding: 2em; max-width: 40em }
-    script
+    script.
       WebFontConfig = {
         google: { families: [ 'Fira+Mono:400,700:latin' ] },
         timeout: 1000
       };
-    script(async defer src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js")
+    script(async defer src="//ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js")
   body
     .main#main(role="main")
       pre.js-cli.cli
         code.cli-line npm install -g harp
         code.cli-line harp server
         code.cli-line.cli-line--comment(data-term="output") Your server is listening at http://localhost:9000
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
-    script(src="../jquery.sightline.js")
+    if environment === 'production'
+      script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+      script(src="https://rawgit.com/chloi/sightline/master/jquery.sightline.js")
+    else
+      script(src="../node_modules/jquery/dist/jquery.js")
+      script(src="../jquery.sightline.js")
     script.
       $('body').addClass('js');
       $('.js-cli').sightline({
