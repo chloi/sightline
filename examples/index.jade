@@ -24,9 +24,9 @@ html(lang="en")
   body
     .main#main(role="main")
       pre.js-cli.cli
-        code.cli-line npm install -g harp
-        code.cli-line harp server
-        code.cli-line.cli-line--comment(data-term="output") Your server is listening at http://localhost:9000
+        code.js-line.cli-line npm install -g harp
+        code.js-line.cli-line harp server
+        code.js-line.cli-line.cli-line--comment(data-term="output") Your server is listening at http://localhost:9000
     if environment === 'production'
       script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
       script(src="https://rawgit.com/chloi/sightline/master/jquery.sightline.js")

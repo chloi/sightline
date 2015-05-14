@@ -16,7 +16,7 @@
     methods = {
       play: function () {
         var self = this,
-            lines = $(self).find("> code"),
+            lines = $(self).find(".js-line"),
             currentLine = 0,
             isFirstLine = true,
             maxLines = self.options.maxLines||0,
