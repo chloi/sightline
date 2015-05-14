@@ -16,7 +16,7 @@
     methods = {
       play: function () {
         var self = this,
-            lines = $(self).find(".js-line"),
+            lines = $(self).find("> .js-sightline-line"),
             currentLine = 0,
             isFirstLine = true,
             maxLines = self.options.maxLines||0,
@@ -27,11 +27,15 @@
 
         // Setup each line and extract the text before starting the animation
         lines.each(function () {
-          var text = $(this).text();
+          var $text = $(this).blast({
+            delimiter: 'character'
+          });
+
+          // console.log(text);
 
           self.lines.push({
-            text: text,
-            textArr: text.split(""),
+            textPlain: $text.text(),
+            textArr: $text,
             el: this,
             $el: $(this)
           });
@@ -60,23 +64,28 @@
               isFirstLine = false;
             }
             // Don’t animate if it's a simple output
-            if (line.$el.attr("data-term") == "output") {
-              line.el.innerHTML = line.text;
+            if (line.$el.attr('data-term') == 'output') {
+              line.$el.html(line.textArr);
               fadeInLine(currentLine);
               currentLine++;
               isFirstLine = true;
               setTimeout(arguments.callee, self.options.lineDelay);
             } else {
-              // Make sure there are still characters in the line
-              if (line.textArr.length > 0) {
-                line.el.innerHTML += line.textArr.shift();
-                if (line.textArr.length == 0) {
-                  currentLine++;
-                  isFirstLine = true;
-                  setTimeout(arguments.callee, self.options.lineDelay);
-                } else {
-                  setTimeout(arguments.callee, self.options.charDelay);
-                }
+              // line.$el.html(line.textArr);
+              if (line.textArr.length >= 0) {
+                line.textArr.each(function(index, b) {
+                  // if (typeof(index) !== 'undefined' || line.textArr.length >= index) {
+                  //   console.log('line');
+                  //   currentLine++;
+                  //   isFirstLine = true;
+                  //   line.$el.append(line.textArr.get(index));
+                  //   setTimeout(arguments.callee, self.options.lineDelay);
+                  // } else {
+                  //   console.log('text');
+                    line.$el.append(line.textArr.get(index));
+                    setTimeout(arguments.callee, self.options.charDelay);
+                  // }
+                })
               }
             }
           } else {

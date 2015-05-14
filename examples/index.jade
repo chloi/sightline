@@ -9,7 +9,7 @@ html(lang="en")
     meta(http-equiv="cleartype" content="on")
     meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
     meta(name="description" content="")
-    meta(name="author" content="Chloi, Inc.")
+    meta(name="author" content="Chloi Inc.")
     link(href="main.css" rel="stylesheet")
     style.
       //- .wf-loading { display: none; visiblity: hidden }
@@ -20,24 +20,37 @@ html(lang="en")
         google: { families: [ 'Fira+Mono:400,700:latin' ] },
         timeout: 1000
       };
-    script(async defer src="//ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js")
+    script(async defer src="//ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js")
   body
     .main#main(role="main")
-      pre.js-cli.cli
-        code.js-line.cli-line npm install -g harp
-        code.js-line.cli-line harp server
-        code.js-line.cli-line.cli-line--comment(data-term="output") Your server is listening at http://localhost:9000
-    if environment === 'production'
+      //-
+        pre.js-sightline.cli
+          code.cli-line(data-prompt="$ ") npm install -g harp
+          code.cli-line(data-prompt="$ ") harp server
+          code.cli-line.cli-line--comment(data-term="output" data-prompt="# ") Your server is listening at http://localhost:9000
+
+      pre.js-sightline.cli
+        span.js-sightline-line.cli-line(data-term="output") Test
+        span.js-sightline-line.cli-line(data-prompt="$ ") surge
+        span.js-sightline-line.cli-line(data-term="output")        project path: ~/Jane/Desktop/my-project/
+        span.js-sightline-line.cli-line <span data-term="output">              domain: </span>my-project.surge.sh
+        span.js-sightline-line.cli-line <span data-term="output">              upload: </span><span data-term="output" data-speed="">[====================]</span><span data-term="output">100%</span>
+        span.js-sightline-line.cli-line(data-term="output")              <span class="">propagate on CDN: </span><span data-term="output" data-speed="">[====================]</span><span data-term="output">100%</span>
+        span.js-sightline-line.cli-line.cli-line--break(data-term="output") Success! Project is published and running at <strong>my-project.surge.sh</strong>
+
+    - if(environment === 'production')
       script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
       script(src="https://rawgit.com/chloi/sightline/master/jquery.sightline.js")
-    else
+    - else
       script(src="../node_modules/jquery/dist/jquery.js")
+      script(src="../node_modules/blast-text/jquery.blast.min.js")
       script(src="../jquery.sightline.js")
     script.
       $('body').addClass('js');
-      $('.js-cli').sightline({
+
+      $('.js-sightline').sightline({
         autoplay: true,
-        maxLines: 5,
+        maxLines: 10,
         charDelay: 50,
         lineDelay: 200
       });

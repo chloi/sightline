@@ -1,6 +1,6 @@
 {
   "name": "sightline",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Demonstrate your CLI with animated examples.",
   "homepage": "https://sightline.surge.sh",
   "license": "MIT",
@@ -20,11 +20,12 @@
     "documentation"
   ],
   "dependencies": {
+    "blast-text": "^2.0.0",
     "jquery": "^2.0.0"
   },
   "devDependencies": {
-    "harp": "^0.14.0",
-    "surge": "^0.5.2"
+    "harp": "^0.17.0",
+    "surge": "^0.11.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/seeLI are greatly appriciated.\" && exit 1",
